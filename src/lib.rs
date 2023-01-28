@@ -14,9 +14,16 @@ pub trait Plug {
     }
 
     #[view(getDaoMembers)]
-    fn get_dao_members_view(&self) -> MultiValueEncoded<ManagedAddress> {
+    fn get_dao_members_view(&self) -> MultiValueEncoded<MultiValue2<ManagedAddress, BigUint>> {
         // Return a list of DAO members' addresses here
-        self.members().keys().collect()
+
+        let mut members_multi = MultiValueEncoded::new();
+
+        for (address, weight) in self.members().iter() {
+            members_multi.push((address, weight).into());
+        }
+
+        members_multi.into()
     }
 
     // 👇 The below is just for testing purposes
