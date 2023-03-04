@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                            3
+// Endpoints:                            2
 // Async Callback (empty):               1
-// Total number of exported functions:   5
+// Total number of exported functions:   4
 
 #![no_std]
 #![feature(alloc_error_handler, lang_items)]
@@ -20,7 +20,6 @@ multiversx_sc_wasm_adapter::endpoints! {
     (
         getDaoVoteWeight
         getDaoMembers
-        addMember
     )
 }
 
