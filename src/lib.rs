@@ -13,7 +13,7 @@ pub trait Plug {
         address: ManagedAddress,
         token: OptionalValue<TokenIdentifier>,
     ) -> BigUint {
-        // Implement your logic for user's vote weight here
+        // Implement your logic for user's voting power calculation here
         self.members().get(&address).unwrap_or_default()
     }
 
