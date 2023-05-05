@@ -8,13 +8,20 @@ pub trait Plug {
     fn init(&self) {}
 
     #[view(getDaoVoteWeight)]
-    fn get_dao_vote_weight_view(&self, address: ManagedAddress) -> BigUint {
+    fn get_dao_vote_weight_view(
+        &self,
+        address: ManagedAddress,
+        token: OptionalValue<TokenIdentifier>,
+    ) -> BigUint {
         // Implement your logic for user's vote weight here
         self.members().get(&address).unwrap_or_default()
     }
 
     #[view(getDaoMembers)]
-    fn get_dao_members_view(&self) -> MultiValueEncoded<MultiValue2<ManagedAddress, BigUint>> {
+    fn get_dao_members_view(
+        &self,
+        token: OptionalValue<TokenIdentifier>,
+    ) -> MultiValueEncoded<MultiValue2<ManagedAddress, BigUint>> {
         // Return a list of DAO members' addresses + their vote weight here
 
         let mut members_multi = MultiValueEncoded::new();
