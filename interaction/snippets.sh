@@ -21,8 +21,8 @@ deploy() {
         --ledger \
         --send || return
 
-    TRANSACTION=$(erdpy data parse --file="deploy-${NETWORK_NAME}.interaction.json" --expression="data['emittedTransactionHash']")
-    ADDRESS=$(erdpy data parse --file="deploy-${NETWORK_NAME}.interaction.json" --expression="data['contractAddress']")
+    TRANSACTION=$(mxpy data parse --file="deploy-${NETWORK_NAME}.interaction.json" --expression="data['emittedTransactionHash']")
+    ADDRESS=$(mxpy data parse --file="deploy-${NETWORK_NAME}.interaction.json" --expression="data['contractAddress']")
 
     mxpy data store --partition $NETWORK_NAME --key=address --value=$ADDRESS
     mxpy data store --partition $NETWORK_NAME --key=deploy-transaction --value=$TRANSACTION
