@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                            3
+// Endpoints:                            4
 // Async Callback (empty):               1
-// Total number of exported functions:   5
+// Total number of exported functions:   6
 
 #![no_std]
 #![allow(internal_features)]
@@ -20,6 +20,7 @@ multiversx_sc_wasm_adapter::endpoints! {
     plug
     (
         init => init
+        upgrade => upgrade
         getDaoVoteWeight => get_dao_vote_weight_view
         getDaoMembers => get_dao_members_view
         addMember => add_member_endpoint

@@ -7,6 +7,9 @@ pub trait Plug {
     #[init]
     fn init(&self) {}
 
+    #[upgrade]
+    fn upgrade(&self) {}
+
     #[view(getDaoVoteWeight)]
     fn get_dao_vote_weight_view(
         &self,
